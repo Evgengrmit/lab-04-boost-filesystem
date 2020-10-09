@@ -13,6 +13,7 @@ namespace fs = boost::filesystem;
 const char kunderscores = '_';
 const char kpoint = '.';
 const char koldFile[] = ".old";
+const char kcorrectextension[] = ".txt";
 struct Date {
   unsigned int year;
   unsigned int month;
