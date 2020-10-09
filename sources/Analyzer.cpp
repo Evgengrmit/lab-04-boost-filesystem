@@ -77,6 +77,9 @@ FinancialFile Analyzer::parseFilename(std::string filename) {
   } else if (filename.substr(1).find(kpoint) != std::string::npos) {
     throw std::exception();
   }
+  if(filename != ".txt"){
+    throw std::exception();
+  }
   file.extension = filename;
   return file;
 }
