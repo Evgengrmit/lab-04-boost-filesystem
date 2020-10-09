@@ -60,20 +60,20 @@ FinancialFile Analyzer::parseFilename(std::string filename) {
 
   file.name = filename;
 
-  file.type = filename.substr(0, filename.find('_'));
-  filename = filename.substr(filename.find('_') + 1);
+  file.type = filename.substr(0, filename.find(kunderscores));
+  filename = filename.substr(filename.find(kunderscores) + 1);
 
-  file.account_number = std::stoi(filename.substr(0, filename.find('_')));
-  filename = filename.substr(filename.find('_') + 1);
+  file.account_number = std::stoi(filename.substr(0, filename.find(kunderscores)));
+  filename = filename.substr(filename.find(kunderscores) + 1);
 
   file.date.year = std::stoi(filename.substr(0, 4));
   file.date.month = std::stoi(filename.substr(4, 2));
   file.date.day = std::stoi(filename.substr(6, 2));
   filename = filename.substr(8);
 
-  if (filename[0] != '.' || filename.substr(0, 4) == ".old") {
+  if (filename[0] != kpoint || filename.substr(0, 4) == koldFile) {
     throw std::exception();
-  } else if (filename.substr(1).find('.') != std::string::npos) {
+  } else if (filename.substr(1).find(kpoint) != std::string::npos) {
     throw std::exception();
   }
   file.extension = filename;

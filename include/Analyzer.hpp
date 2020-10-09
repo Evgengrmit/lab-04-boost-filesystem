@@ -10,7 +10,9 @@
 #include <vector>
 
 namespace fs = boost::filesystem;
-
+const char kunderscores = '_';
+const char kpoint = '.';
+const std::string koldFile = ".old";
 struct Date {
   unsigned int year;
   unsigned int month;
