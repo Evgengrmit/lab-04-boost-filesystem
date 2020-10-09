@@ -63,7 +63,8 @@ FinancialFile Analyzer::parseFilename(std::string filename) {
   file.type = filename.substr(0, filename.find(kunderscores));
   filename = filename.substr(filename.find(kunderscores) + 1);
 
-  file.account_number = std::stoi(filename.substr(0, filename.find(kunderscores)));
+  file.account_number =
+      std::stoi(filename.substr(0, filename.find(kunderscores)));
   filename = filename.substr(filename.find(kunderscores) + 1);
 
   file.date.year = std::stoi(filename.substr(0, 4));
